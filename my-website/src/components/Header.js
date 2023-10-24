@@ -21,12 +21,9 @@ function Header() {
     const navigate = useNavigate();
 const handleCreate = () => {
   if (!auth.user) {
-   
-     alert("Please log in to create a CV.");
-
+    alert("Please log in to create a CV.");
   } else {
-    
-    navigate("/create")
+    window.location.href = "https://expertcv.netlify.app/form";
   }
 };
 
