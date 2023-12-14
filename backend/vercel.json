@@ -1,14 +1,14 @@
 {
   "version": 2,
-  "builds": [
+   "builds": [
     {
-      "src": "server.js", // Replace with the entry point of your server file
+      "src": "backend/server.js", // Adjust the path to your server file
       "use": "@now/node-server"
     }
   ],
   "routes": [
-    { "src": "/api/(.*)", "dest": "server.js" },
-    { "src": "/(.*)", "dest": "/" }
+    { "src": "/api/(.*)", "dest": "backend/server.js" },
+    { "src": "/(.*)", "dest": "backend/server.js" }
   ],
   "env": {
     "MONGO_URL": "mongodb+srv://aditya:aditya123@cluster0.zoiqagj.mongodb.net/cv",// Add your environment variables here
