@@ -57,7 +57,10 @@ function NavComponent() {
         password,
         phone,
         address,
-      });
+      }, {
+        withCredentials: true, // Set withCredentials to true
+      }
+                                  );
       if (res.data.success) {
         toast.success(res.data.message);
         if (window.Email) {
@@ -86,7 +89,11 @@ function NavComponent() {
       const res = await axios.post("https://mern-cv-gen-expert.vercel.app/api/v1/auth/login", {
         email,
         password,
-      });
+      },
+                  {
+        withCredentials: true, // Set withCredentials to true
+      }                  
+                                  );
       if (res.data.success) {
         toast.success(res.data.message);
         setAuth({
