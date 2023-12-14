@@ -17,7 +17,7 @@ const app = express();
 //middleware
 app.use(cors(
   {
-    origin :["https://expert-cv-generator-using-mern-front.vercel.app/"],
+    origin :["https://expert-cv-generator-using-mern-front.vercel.app"],
     methods:["POST"."GET"],
     credentials: true
   }
