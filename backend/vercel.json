@@ -1,10 +1,20 @@
 {
-  "version":2,
-  "builds":[{
-    "src":"*.js","use":"@vercel/node"
-  }],
-  "routes":[{
-    "src":"/(.*)",
-    "dest":"/"
-  }]
+  "version": 2,
+  "builds": [
+    {
+      "src": "server.js", // Replace with the entry point of your server file
+      "use": "@now/node-server"
+    }
+  ],
+  "routes": [
+    { "src": "/api/(.*)", "dest": "server.js" },
+    { "src": "/(.*)", "dest": "/" }
+  ],
+  "env": {
+    "MONGO_URL": "mongodb+srv://aditya:aditya123@cluster0.zoiqagj.mongodb.net/cv",// Add your environment variables here
+    "JWT_SECRET":"jdjfiwfuwifhwiefhweifhwe"
+  
+
+
+  }
 }
