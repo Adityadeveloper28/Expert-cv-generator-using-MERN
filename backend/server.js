@@ -26,7 +26,8 @@ app.use(morgan("dev"));
 
 // Routes
 app.use("/api/v1/auth/", authRoute);
-
+app.options("/api/v1/auth/login", cors());
+app.options("/api/v1/auth/register", cors());
 // REST APIs
 app.get("/", (req, res) => {
   res.send("<h1>Welcome to CV Generator MERN stack project</h1>");
