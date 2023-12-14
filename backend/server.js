@@ -6,40 +6,39 @@ import connectDB from "./config/db.js";
 import authRoute from "./routes/authRoute.js";
 import cors from "cors";
 
-// /config dot env
+// Configuring dotenv
 dotenv.config();
 
-//database config
+// Connecting to the database
 connectDB();
 
-///rest obj
+// Creating the Express app
 const app = express();
-//middleware
-app.use(cors(
-  {
-    origin:["https://expert-cv-generator-using-mern-front.vercel.app"],
-    methods:["POST","GET"],
-    credentials:true
-  }
-));
+
+// Middleware
+app.use(cors({
+  origin: "https://expert-cv-generator-using-mern-front.vercel.app",
+  methods: ["POST", "GET"],
+  credentials: true
+}));
 app.use(express.json());
 app.use(morgan("dev"));
 
-//routes
+// Routes
 app.use("/api/v1/auth/", authRoute);
 
-//rest apis
+// REST APIs
 app.get("/", (req, res) => {
-  res.send("<h1>welcome to cv generator MERN stack project</h1>");
+  res.send("<h1>Welcome to CV Generator MERN stack project</h1>");
 });
 
-//port
+// Handling preflight requests for the specified route
+app.options("/api/v1/auth/login", cors());
+
+// Configuring the port
 const PORT = process.env.PORT || 8080;
 
-//run listen
+// Starting the server
 app.listen(PORT, () => {
-  console.log(
-    `Server running on ${process.env.DEV_MOde} mode on port ${PORT}`.bgCyan
-      .white
-  );
+  console.log(`Server running on ${process.env.DEV_MODE} mode on port ${PORT}`.bgCyan.white);
 });
