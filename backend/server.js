@@ -16,7 +16,11 @@ connectDB();
 const app = express();
 //middleware
 app.use(cors(
-  
+  {
+    origin:["mern-cv-gen-expert.vercel.app"],
+    methods:["POST","GET"],
+    credentials:true
+  }
 ));
 app.use(express.json());
 app.use(morgan("dev"));
